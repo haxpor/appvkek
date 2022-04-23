@@ -1,0 +1,17 @@
+[package]
+name = "appvkek"
+version = "0.1.0"
+edition = "2021"
+authors = ["Wasin Thonkaew <wasin@wasin.io>"]
+description = "cli tool to perform security measurements on approval and allowance on target token smart contracts connected to user' wallet address"
+repository = "https://github.com/haxpor/appvkek"
+license = "MIT"
+keywords = ["bsc", "approve", "allowance", "security", "crypto"]
+categories = ["command-line-utilities"]
+readme = "README.md"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+clap = { version = "3.1.10", features = ["derive"] }
+bscscan = "0.5.1"
