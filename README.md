@@ -38,5 +38,8 @@ $ appvkek -a 0xcab1067285d391d58891065de2f83776603b2667
 such wallet address is the top whale in BSC chain. We use it as an example only,
 not to imply anything.
 
+This will output the allowance balance associated with each spender address under
+the token contract.
+
 # License
 MIT, Wasin Thonkaew
