@@ -41,7 +41,6 @@ pub async fn perform_check_is_eoa(web3: &Web3<Http>, address: &str) -> Result<bo
     };
     
     // query for code
-    //let code_bytes = match web3.eth().code(Address::from_slice(address_hexbytes_decoded.as_slice()), Some(web3::types::BlockNumber::Number(web3::types::U64::from_dec_str("16340441").unwrap()))).await {
     let code_bytes = match web3.eth().code(Address::from_slice(address_hexbytes_decoded.as_slice()), None).await {
         Ok(res) => res,
         Err(e) => {
