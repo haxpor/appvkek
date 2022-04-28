@@ -9,6 +9,10 @@ pub struct CommandlineArgs {
     /// User's wallet address to check against.
     #[clap(long="wallet-address", short='a', required=true)]
     pub address: String,
+
+    /// Whether to include execution time statistics at the end of procesing
+    #[clap(long="no-execution-time", multiple_values=false, default_missing_value="true", takes_value=false)]
+    pub no_execution_time: bool,
 }
 
 /// Top-level meta information.

@@ -112,8 +112,11 @@ async fn main() {
     let mut ct_txs: HashMap<String, HashMap<String, DummyType>> = HashMap::new();
     let owner_address = cmd_args.address;
 
+    #[allow(dead_code)]
     let mut start_time = std::time::Instant::now();
-    measure_start(&mut start_time);
+    if !cmd_args.no_execution_time {
+        measure_start(&mut start_time);
+    }
 
     // get all transactions
     match accounts.get_list_normal_transactions(&ctx, &owner_address) {
@@ -184,5 +187,7 @@ It should contain at least three arguments for approve() method signature.");
             }
         }
     }
-    measure_end(&start_time, true);
+    if !cmd_args.no_execution_time {
+        measure_end(&start_time, true);
+    }
 }
