@@ -6,6 +6,8 @@ use web3::{
 };
 use regex::Regex;
 
+pub type Web3Type = web3::Web3<web3::transports::http::Http>;
+
 /// Validate whether the specified address is in correct format.
 /// Return true if the format is correct, otherwise return false.
 ///
@@ -184,4 +186,21 @@ where
     R: Detokenize + 'a
 {
     contract.query(fn_name, (), None, Options::default(), None)
+}
+
+/// Start measuring time. Suitable for wall-clock time measurement.
+/// This is mainly used to measure time of placing a limit order onto Bybit.
+pub fn measure_start(start: &mut std::time::Instant) {
+    *start = std::time::Instant::now();
+}
+
+/// Mark the end of the measurement of time performance.
+/// Return result in seconds, along with printing the elapsed time if `also_print`
+/// is `true`.
+pub fn measure_end(start: &std::time::Instant, also_print: bool) -> f64 {
+    let elapsed = start.elapsed().as_secs_f64();
+    if also_print {
+        println!("(elapsed = {:.2} secs)", elapsed);
+    }
+    elapsed
 }

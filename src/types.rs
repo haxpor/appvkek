@@ -1,4 +1,5 @@
 use clap::Parser;
+use std::collections::HashMap;
 
 #[derive(Debug, Parser)]
 #[clap(author="Wasin Thonkaew (wasin@wasin.io)")]
@@ -11,19 +12,19 @@ pub struct CommandlineArgs {
 }
 
 /// Top-level meta information.
-pub struct TopLevelContractMetaInfo {
+#[derive(Debug)]
+pub struct TokenContractWithSpenderAllowances {
     /// Contract name
     pub name: String,
 
+    /// Contract address
+    pub address: String,
+
     /// Number of decimals to token
     pub decimals: u8,
-}
 
-/// Inferred information through HashMap towards approved contract address.
-/// It is inferred because we can get major information of which address
-/// through key(s) in HashMap which store this structure.
-pub struct InferredContractMetaInfo {
-    /// Allowance balance for user's address towards this inferred contract, spender
-    /// and owner address.
-    pub allowance_balance: f64,
+    /// Hash map of spender with its associated allowance balance
+    /// It would be possible to hold maximum allowance value as maximum value of
+    /// `f64` is `1.7976931348623157e+308_f64`.
+    pub spender_allowances: HashMap<String, f64>,
 }
