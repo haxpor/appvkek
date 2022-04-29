@@ -1,6 +1,13 @@
 # appvkek
 Cli tool to check your approved permission with contracts connected with your wallet address, and allow to disapprove them. Support BSC (first), then Ethereum, and Polygon chain.
 
+The goal of this tool is to list out potential token contracts which are approved
+with allowance such that user can externally set a new amount of allowance later.
+
+At first this tool could possibly include automated disapprove allowance for
+all token contracts, but for now, it's clearer and better to do it externally with
+additional tool which is in working; will update here when there's some progress.
+
 # Setup
 
 Grab bscscan.com API key then define it via environment variable namely `APPVKEK_BSCSCAN_APIKEY` before running the application.
@@ -35,11 +42,16 @@ $ appvkek -a 0xcab1067285d391d58891065de2f83776603b2667
   * 0x10ed43c718714eb63d5aa57b78b54704e256024e - 115792089237316200000000000000000000000000000000000000000000
 ...
 ```
+
 such wallet address is the top whale in BSC chain. We use it as an example only,
 not to imply anything.
 
 This will output the allowance balance associated with each spender address under
 the token contract.
+
+# Additional option flags
+
+* `--execution-time` - to also show the execution time for all processing, queries, etc.
 
 # License
 MIT, Wasin Thonkaew
