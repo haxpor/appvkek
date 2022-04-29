@@ -114,7 +114,7 @@ async fn main() {
 
     #[allow(dead_code)]
     let mut start_time = std::time::Instant::now();
-    if !cmd_args.no_execution_time {
+    if cmd_args.execution_time {
         measure_start(&mut start_time);
     }
 
@@ -187,7 +187,7 @@ It should contain at least three arguments for approve() method signature.");
             }
         }
     }
-    if !cmd_args.no_execution_time {
+    if cmd_args.execution_time {
         measure_end(&start_time, true);
     }
 }

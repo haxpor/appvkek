@@ -11,8 +11,8 @@ pub struct CommandlineArgs {
     pub address: String,
 
     /// Whether to include execution time statistics at the end of procesing
-    #[clap(long="no-execution-time", multiple_values=false, default_missing_value="true", takes_value=false)]
-    pub no_execution_time: bool,
+    #[clap(long="execution-time", multiple_values=false, default_missing_value="true", takes_value=false)]
+    pub execution_time: bool,
 }
 
 /// Top-level meta information.
