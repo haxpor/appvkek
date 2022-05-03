@@ -1,6 +1,6 @@
 [package]
 name = "appvkek"
-version = "0.1.1"
+version = "0.2.0"
 edition = "2021"
 authors = ["Wasin Thonkaew <wasin@wasin.io>"]
 description = "cli tool to perform security measurements on approval and allowance on target token smart contracts connected to user' wallet address"
