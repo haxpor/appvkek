@@ -13,10 +13,10 @@ dependencies = [
 
 [[package]]
 name = "appvkek"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
- "bscscan",
  "clap",
+ "evmscan",
  "futures",
  "hex",
  "regex",
@@ -118,20 +118,6 @@ name = "block-padding"
 version = "0.2.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "8d696c370c750c948ada61c69a0ee2cbbb9c50b1019ddb86d9317157a99c2cae"
-
-[[package]]
-name = "bscscan"
-version = "0.5.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b395a434d1581dd626620b0b67d5653defb5dbf2868c19a63e743556a72df4a6"
-dependencies = [
- "isahc",
- "primitive-types 0.11.1",
- "regex",
- "serde",
- "serde_json",
- "url",
-]
 
 [[package]]
 name = "bumpalo"
@@ -405,6 +391,20 @@ name = "event-listener"
 version = "2.5.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "77f3309417938f28bf8228fcff79a4a37103981e3e186d2ccd19c74b38f4eb71"
+
+[[package]]
+name = "evmscan"
+version = "0.6.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "07370fe094a09bd7298db581e814b37ff865d333ca7f369851f6226dfe2ccc1f"
+dependencies = [
+ "isahc",
+ "primitive-types 0.11.1",
+ "regex",
+ "serde",
+ "serde_json",
+ "url",
+]
 
 [[package]]
 name = "fastrand"

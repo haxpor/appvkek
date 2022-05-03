@@ -5,8 +5,16 @@ use web3::{
     contract::{Contract, Options, tokens::Detokenize},
 };
 use regex::Regex;
+use ::evmscan::prelude::*;
 
 pub type Web3Type = web3::Web3<web3::transports::http::Http>;
+
+/// RPC endpoint of BSC chain
+pub(crate) static BSC_RPC_ENDPOINT: &str = "https://bsc-dataseed.binance.org/";
+/// RPC endpoint of Ethereum chain
+pub(crate) static ETHEREUM_RPC_ENDPOINT: &str = "https://rpc.ankr.com/eth";
+/// RPC endpoint of Polygon chain
+pub(crate) static POLYGON_RPC_ENDPOINT: &str = "https://polygon-rpc.com/";
 
 /// Validate whether the specified address is in correct format.
 /// Return true if the format is correct, otherwise return false.
@@ -73,8 +81,13 @@ pub fn get_address_from_str(address: &str) -> Result<Address, String> {
 }
 
 /// Create a web3 instance
-pub fn create_web3() -> Web3<Http> {
-    let http = Http::new("https://bsc-dataseed.binance.org/").unwrap();
+pub fn create_web3(chain: ChainType) -> Web3<Http> {
+    let rpc_endpoint = match chain {
+        ChainType::BSC => BSC_RPC_ENDPOINT,
+        ChainType::Ethereum => ETHEREUM_RPC_ENDPOINT,
+        ChainType::Polygon => POLYGON_RPC_ENDPOINT,
+    };
+    let http = Http::new(rpc_endpoint).unwrap();
     Web3::new(http)
 }
 

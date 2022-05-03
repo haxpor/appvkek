@@ -13,10 +13,15 @@ pub struct CommandlineArgs {
     /// Whether to include execution time statistics at the end of procesing
     #[clap(long="execution-time", multiple_values=false, default_missing_value="true", takes_value=false)]
     pub execution_time: bool,
+
+    /// Which chain to work with.
+    /// Possible values are 'bsc', 'ethereum', and 'polygon'.
+    #[clap(long="chain", short='c', required=true, multiple_values=false)]
+    pub chain: String,
 }
 
 /// Top-level meta information.
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct TokenContractWithSpenderAllowances {
     /// Contract name
     pub name: String,
